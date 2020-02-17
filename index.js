@@ -62,7 +62,8 @@ export const createGoogleParams = params => {
     origin: params.start,
     destination: params.end,
     travelmode: travelTypeMap[params.travelType],
-    zoom: params.zoom
+    zoom: params.zoom,
+    waypoints: params.waypoints
   };
 
   if (params.navigate_mode === "navigate") {
@@ -87,7 +88,8 @@ export const createQueryParameters = ({
   end = "",
   query = "",
   navigate_mode = "preview", // preview has always being the default mode
-  travelType = "drive"
+  travelType = "drive",
+  waypoints = ""
 }) => {
   validateTravelType(travelType);
 
@@ -97,7 +99,8 @@ export const createQueryParameters = ({
     query,
     navigate_mode,
     travelType,
-    zoom
+    zoom,
+    waypoints
   };
 
   if (latitude && longitude) {
